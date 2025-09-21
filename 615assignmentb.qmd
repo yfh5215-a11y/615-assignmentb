@@ -1,0 +1,861 @@
+```{r}
+"exercise 1"
+"1"
+"(a)"
+v_a <- 1:20
+print(v_a)
+
+"(b)"
+v_b <- 20:1
+print(v_b)
+
+"c"
+v_c<- c(1:20, 19:1)
+print(v_c)
+
+"d"
+tmp<- c(4, 6, 3)
+print(tmp)
+
+"e"
+v_e <- rep(c(4,6,3), times=10)
+print(v_e)
+
+"f"
+v_f <- c(rep(c(4,6,3), times=10), 4)
+print(v_f)
+
+"g"
+v_g <- c(rep(4,10), rep(6,20), rep(3,30))
+print(v_g)
+```
+
+```{r}
+"2"
+x <- seq(3, 6, by=0.1)
+answer <- exp(x) * cos(x)
+print(answer)
+```
+
+```{r}
+"3"
+"a"
+A <- seq(3, 36, by=3)
+
+B <- seq(1, 34, by=3)
+
+answer <- (0.1 ^ A) * (0.2 ^ B)
+
+print(answer)
+```
+
+```{r}
+"b"
+A<-seq(1,25,by=1)
+
+answer<-(2^A/A)
+
+print(answer)
+
+```
+
+```{r}
+"4"
+"a"
+A<-seq(10,100,by=1)
+
+vec<-(A^3+4*A^2)
+
+answer<-sum(vec)
+
+print(answer)
+```
+
+```{r}
+"b"
+A<-seq(1,25,by=1)
+
+vec<-(2^A/A+3^A/A^2)
+
+answer<-sum(vec)
+
+print(answer)
+```
+
+```{r}
+"5"
+"a"
+answer <- paste("label", 1:30)
+print(answer)
+```
+
+```{r}
+"b"
+answer <- paste0("fn", 1:30)
+print(answer)
+```
+
+```{r}
+"6"
+set.seed(50)
+xVec <- sample(0:999, 250, replace = TRUE)
+yVec <- sample(0:999, 250, replace = TRUE)
+
+"a"
+answer <- yVec[2:250] - xVec[1:249]
+
+print(answer)
+```
+
+```{r}
+"b"
+answer <- sin(yVec[1:249]) / cos(xVec[2:250])
+
+print(answer)
+
+```
+
+```{r}
+"c"
+answer<- xVec[1:248] + 2*xVec[2:249] - xVec[3:250]
+
+print(answer)
+
+```
+
+```{r}
+"d"
+vec <- exp(-xVec[2:250]) / (xVec[1:249] + 10)
+answer <- sum(vec)
+print(answer)
+
+```
+
+```{r}
+"7"
+set.seed(50)
+xVec <- sample(0:999, 250, replace=TRUE)
+yVec <- sample(0:999, 250, replace=TRUE)
+
+"a"
+answer<-yVec[yVec > 600]
+
+print(answer)
+```
+
+```{r}
+"b"
+answer_b<-which(yVec > 600)
+
+print(answer_b)
+
+"c"
+anser_c<- xVec[answer_b]
+
+print(answer_c)
+```
+
+```{r}
+
+"d"
+mean<-mean(xVec)
+
+answer<-abs(xVec - mean) ^ 0.5
+
+print(answer)
+
+```
+
+```{r}
+
+"e"
+max<-max(yVec)
+
+answer<- sum(yVec >= (max - 200))
+
+print(answer)
+```
+
+```{r}
+
+"f"
+answer<-sum(xVec %% 2 == 0)
+
+print(answer)
+```
+
+```{r}
+
+"g"
+increasing<- order(yVec) 
+
+answer<- xVec[increasing]
+
+print(answer)
+```
+
+```{r}
+
+"h"
+elements<-seq(1,length(yVec), by=3)
+
+answer<-yVec[elements]
+
+print(answer)
+```
+
+```{r}
+
+A<-seq(2,38,by=2) 
+B<-seq(3,39,by=2) 
+
+fra<-A/B
+
+C<-cumprod(fra)
+
+answer<-1+sum(C)
+
+print(answer)
+```
+
+```{r}
+
+"Exercise2"
+"1"
+"a"
+A<-matrix(c(1,5,-2,1,2,-1,3,6,-3),nrow=3,ncol=3,byrow=FALSE)
+
+A2<-A%*%A
+A3<-A2%*%A
+
+print(A3)
+
+
+```
+
+```{r}
+"b"
+
+A[,3]<-A[,2]+A[,3]
+
+print(A)
+```
+
+```{r}
+"2"
+B <- matrix(rep(c(10, -10, 10), 15), nrow=15, ncol=3, byrow=TRUE)
+
+print(B)
+
+answer<-crossprod(B)
+
+print(answer)
+```
+
+```{r}
+"3"
+"a"
+matE <- matrix(0, nrow = 6, ncol = 6)
+
+print(matE)
+
+print(row(matE))
+
+print(col(matE))
+
+"b"
+
+matE[abs(row(matE) - col(matE)) == 1] <- 1
+
+print(matE)
+```
+
+```{r}
+"4"
+A<-0:4
+B<-0:4
+
+answer<-outer(A,B,"+")
+
+print(answer)
+```
+
+```{r}
+"5"
+"a"
+X<-4
+
+answer<-outer(0:X,0:X,function(i,j) (i+j)%%(X+1))
+
+print(answer)
+
+```
+
+```{r}
+"b"
+X<-9
+
+answer<-outer(0:X,0:X,function(i,j) (i+j)%%(X+1))
+
+print(answer)
+```
+
+```{r}
+"c"
+X<-8
+
+answer<-outer(0:X,0:X,function(i,j) (i-j)%%(X+1))
+
+print(answer)
+```
+
+```{r}
+"6"
+X=5
+A<-outer(1:X,1:X,function(i,j)1+abs(i-j))
+
+y<-c(7, -1, -3, 5, 17)
+
+answer<-solve(A,y)
+
+print(answer)
+
+```
+
+```{r}
+"7"
+aMat <- matrix(sample(10, size=60, replace=TRUE), nrow=6)
+
+"a"
+
+larger_than_4 <- rowSums(aMat > 4)
+print(larger_than_4)
+
+"b"
+
+equal_to_7 <- which(rowSums(aMat == 7) == 2)
+print(equal_to_7)
+
+"c"
+
+"allow repetation"
+nCol <- ncol(aMat)
+results <- NULL
+for (c1 in 1:nCol) {
+  for (c2 in 1:nCol) {
+    colSum <- sum(aMat[, c1]) + sum(aMat[, c2])
+    if (colSum > 75) {
+      results <- rbind(results, c(c1, c2))
+    }
+  }
+}
+print(results)
+
+"not allow repetation"
+
+results_unique <- NULL
+for (c1 in 1:(nCol - 1)) {
+  for (c2 in (c1 + 1):nCol) {
+    colSum <- sum(aMat[, c1]) + sum(aMat[, c2])
+    if (colSum > 75) {
+      results_unique <- rbind(results_unique, c(c1, c2))
+    }
+  }
+}
+print(results_unique)
+```
+
+```{r}
+"8"
+"a"
+answer <- 0
+for (i in 1:20) {
+  for (j in 1:5) {
+   answer <- answer + (i^4) / (3 + j)
+  }
+}
+print(answer)
+```
+
+```{r}
+"b"
+answer <- 0
+for (i in 1:20) {
+  for (j in 1:5) {
+    answer <- answer + (i^4) / (3 + i * j)
+  }
+}
+print(answer)
+```
+
+```{r}
+"c"
+answer <- 0
+for (i in 1:10) {
+  for (j in 1:i) {
+    answer <- answer + (i^4) / (3 + i * j)
+  }
+}
+print(answer)
+```
+
+```{r}
+"Exercise3"
+"1"
+"a"
+tmpFn1 <- function(xVec) {
+  n <- length(xVec)
+  sapply(1:n, function(i) xVec[i]^i)
+}
+
+tmpFn2 <- function(xVec) {
+  n <- length(xVec)
+  sapply(1:n, function(i) (xVec[i]^i) / i)
+}
+```
+
+```{r}
+"b"
+tmpFn3<-function(x,n){
+  vec<-sapply(1:n,function(y) x^y/y)
+  answer<-1+sum(vec)
+  return(answer)
+}
+
+```
+
+```{r}
+"2"
+a <- c(1:5, 6:1)
+n <- length(a)
+
+answer <- (a[1:(n-2)] + a[2:(n-1)] + a[3:n]) / 3
+
+print(answer)
+
+```
+
+```{r}
+"3"
+
+fx<-function(xVec){
+   yVec[xVec < 0] <- xVec[xVec < 0]^2 + 2*xVec[xVec < 0] + 3
+  
+  yVec[xVec >= 0 & xVec < 2] <- xVec[xVec >= 0 & xVec < 2] + 3
+  
+  yVec[xVec >= 2] <- xVec[xVec >= 2]^2 + 4*xVec[xVec >= 2] -7
+  
+  return(yVec)
+}
+
+x_values <- seq(-3, 3, length.out = 1000)
+y_values <- fx(x_values)
+plot(x_values, y_values, )
+```
+
+```{r}
+"4"
+
+double<- function(input) {
+  answer <- input          
+  odd <- (input %% 2 != 0) 
+  answer[odd] <- 2 * input[odd]  
+  return(answer)
+}
+A <- matrix(c(1,5,-2,1,2,-1,3,6,-3), nrow=3, byrow=FALSE)
+
+double(A)
+```
+
+```{r}
+
+"Exercise 4"
+"1"
+"a"
+f_1a <- function(xVec, yVec) {
+  
+  comp <- outer(yVec, xVec, "<")
+  
+  colSums(comp)
+}
+"b"
+f_1b <- function(xVec, yVec) {
+  
+  sapply(xVec, function(x) sum(yVec < x))
+}
+"c"
+f_1c <- function(xVec, yVec) {
+  
+  vapply(xVec, function(x) sum(yVec < x), integer(1))
+}
+"d"
+empty <- numeric(0)
+print(f_1a(empty, empty))
+print(f_1b(empty, empty))
+print(f_1c(empty, empty))
+
+"e"
+set.seed(53)
+x1 <- rnorm(10010)
+y1 <- rnorm(10020)
+system.time(f_1a(x1,y1))
+system.time(f_1b(x1,y1))
+system.time(f_1c(x1,y1))
+```
+
+```{r}
+"2"
+"a"
+function_a <- function(mat) {
+  col_na <- apply(mat, 2, function(col) all(!is.na(col)))
+  return(mat[, col_na, drop = FALSE])  
+}
+```
+
+```{r}
+"b"
+function_b <- function(mat) {
+  row_na <- apply(mat, 1, function(row) all(!is.na(row)))
+  
+  col_na <- apply(mat, 2, function(col) all(!is.na(col)))
+  
+  return(mat[row_na, col_na, drop = FALSE])
+}
+```
+
+```{r}
+"3"
+"a"
+Copula_a <- function(u, v, xVec, yVec) {
+  
+  r <- rank(xVec)       
+  s <- rank(yVec)        
+  
+  C <- (r / (n + 1) <= u) & (s / (n + 1) <= v)
+  
+  answer <- sum(C) / n
+  
+  return(answer)
+}
+
+
+```
+
+```{r}
+"b"
+empCopula_vec <- function(u, v, xVec, yVec) {
+  r <- rank(xVec)
+  s <- rank(yVec)
+
+  sapply(1:length(u), function(i) {
+    C<-(r/(n + 1)<=u[i])&(s/(n+1)<= v[i])
+    sum(C)/n
+  })
+}
+```
+
+```{r}
+"4"
+"a"
+funA<-function(n){
+  answer<-0
+  for(r in 1:n) {
+    for(s in 1:r) {
+      answer<-answer+s^2/(10+4*r^3)
+    }
+  }
+  return(answer)
+}
+
+"b"
+funB <- function(n) {
+  R <- row(matrix(0, n, n))
+  S <- col(matrix(0, n, n))
+  mat <- ifelse(S <= R, S^2 / (10 + 4 * R^3), 0)
+  sum(mat)
+}
+
+"c"
+
+
+funC <- function(n) {
+  r <- 1:n
+  s <- 1:n
+  mat <- outer(r, s, FUN = function(r, s) {
+    ifelse(s <= r, s^2 / (10 + 4 * r^3), 0)
+  })
+  sum(mat)
+}
+
+"d"
+
+
+funD_inner <- function(r) {
+  s <- 1:r
+  sum(s^2 / (10 + 4 * r^3))
+}
+
+funD <- function(n) {
+  sum(sapply(1:n, funD_inner))
+}
+
+"e"
+
+funE <- function(r, s) {
+  if (s <= r) {
+    return(s^2 / (10 + 4 * r^3))
+  } else {
+    return(0)
+  }
+}
+
+funE <- function(n) {
+  res <- mapply(funF_inner,
+                rep(1:n, times = 1:n),  
+                unlist(lapply(1:n, seq_len)) 
+               )
+  sum(res)
+}
+n <- 1000
+
+system.time(resA <- funA(n))
+system.time(resB <- funB(n))
+system.time(resC <- funC(n))
+system.time(resD <- funD(n))
+system.time(resE <- funE(n))
+system.time(resF <- funF(n))
+
+"funD is the fastest function"
+```
+
+```{r}
+
+"5"
+"a"
+queue <- function(n, aRate, sRate) {
+  A <- rexp(n, rate = aRate)
+  S <- rexp(n, rate = sRate)
+  W <- numeric(n + 1)
+  for (j in seq_len(n)) W[j + 1] <- max(0, W[j] + S[j] - A[j])
+  W[n + 1]
+}
+
+"b"
+queue_loop <- function(n, aRate, sRate, m) {
+  res <- numeric(m)
+  for (i in 1:m) res[i] <- queue(n, aRate, sRate)
+  res
+}
+
+queue_sapply <- function(n, aRate, sRate, m) {
+  replicate(m, queue(n, aRate, sRate))
+}
+
+"c"
+vectorized_queue <- queue
+
+vectorized_queue_sim <- function(n, aRate, sRate, m) {
+  replicate(m, vectorized_queue(n, aRate, sRate))
+}
+
+n <- 50; aRate <- 2; sRate <- 2; m <- 1000
+
+system.time(res_loop <- queue_loop(n, aRate, sRate, m))
+system.time(res_sapply <- queue_sapply(n, aRate, sRate, m))
+system.time(res_vec <- vectorized_queue_sim(n, aRate, sRate, m))
+
+"new function is lightly faster than others"
+```
+
+```{r}
+"Exercise 5"
+"1"
+"a"
+tsEwma <- function(tsDat, m0 = 0, delta = 0.7) {
+  n <- length(tsDat)
+  m <- numeric(n)
+  m[1] <- m0 + (1 - delta) * (tsDat[1] - m0)
+  
+  for (t in 2:n) {
+    e <- tsDat[t] - m[t - 1]
+    m[t] <- m[t - 1] + (1 - delta) * e
+  }
+  
+  ts(m, start = start(tsDat), frequency = frequency(tsDat))
+}
+
+"b"
+tsEwma_fast <- function(tsDat, m0 = 0, delta = 0.7) {
+  dat_vec <- as.numeric(tsDat)
+  n <- length(dat_vec)
+  m <- numeric(n)
+  m[1] <- m0 + (1 - delta) * (dat_vec[1] - m0)
+
+  for (t in 2:n) {
+    e <- dat_vec[t] - m[t - 1]
+    m[t] <- m[t - 1] + (1 - delta) * e
+  }
+
+  ts(m, start = start(tsDat), frequency = frequency(tsDat))
+}
+set.seed(1)
+datVec <- rnorm(100000)                 
+tsData <- ts(datVec, start = c(2000,1), frequency = 12)
+
+system.time({
+  res1 <- tsEwma(tsData)
+})
+
+system.time({
+  res2 <- tsEwma_fast(tsData)
+})
+
+"Looping over a numeric vector is much faster than looping over a time series."
+```
+
+```{r}
+"2"
+"a"
+
+myListFn <- function(n) {
+  xVec <- rnorm(n)              
+  xbar <- mean(xVec)             
+
+  if (xbar >= 0) {
+    yVec <- rexp(n, rate = 1 / xbar)  
+  } else {
+    zVec <- rexp(n, rate = 1 / (-xbar)) 
+    yVec <- -zVec                        
+  }
+  
+  count <- sum(abs(yVec) > abs(xVec))   
+  
+  return(list(xVec = xVec, yVec = yVec, count = count)) 
+}
+
+"b"
+
+res_lapply <- lapply(rep(10, 4), myListFn)
+res_sapply <- sapply(rep(10, 4), myListFn)
+
+"c"
+
+myList <- lapply(rep(10, 1000), myListFn)
+
+yVec_list <- lapply(myList, function(x) x$yVec)  
+
+str(yVec_list[[1]])       
+
+"d"
+
+yMat <- do.call(rbind, yVec_list) 
+
+dim(yMat)                
+
+"e"
+
+myList_noCount <- lapply(myList, function(x) x[c("xVec", "yVec")])
+
+str(myList_noCount[[1]])  
+
+"f"
+
+filtered_list <- Filter(function(x) x$count > 2, myList)
+
+length(filtered_list) 
+
+
+"3"
+"a"
+
+xMat <- do.call(rbind, lapply(myList, `[[`, "xVec"))
+
+
+
+countVec <- sapply(myList, `[[`, "count")
+
+weights <- 1:10
+
+v <- rowSums(xMat * weights) / rowSums(yMat * weights)
+
+print(head(v))
+
+
+"b"
+
+M <- xMat - yMat
+
+print(dim(M))
+print(head(M)) 
+
+"c"
+
+iVec <- 1:nrow(xMat)
+
+numerator <- sum(iVec * xMat[, 2])
+
+denominator <- sum(countVec * yMat[, 2])
+
+result_c <- numerator / denominator
+
+print(result_c)
+
+
+```
+
+```{"4"}
+
+"a"
+
+testFn <- function(arr) {
+  d <- dim(arr)
+  d1 <- d[1]; d2 <- d[2]; d3 <- d[3]
+  
+  min_i_jk <- apply(arr, c(2,3), min)
+  w <- array(0, dim = c(d1, d2, d3))
+  for (k in 1:d3) {
+    for (j in 1:d2) {
+      w[, j, k] <- arr[, j, k] - min_i_jk[j, k]
+    }
+  }
+
+  max_i_jk <- apply(arr, c(2,3), max)
+  z <- matrix(0, nrow = d2, ncol = d3)
+  for (k in 1:d3) {
+    for (j in 1:d2) {
+      z[j, k] <- sum(arr[, j, k] - max_i_jk[j, k])
+    }
+  }
+  
+  list(w = w, z = z)
+}
+"b"
+testFn2 <- function(arr) {
+  apply(arr, c(2, 3), sum)
+}
+```
+
+------------------------------------------------------------------------
+
+title: "assignment b" author: "yike hu" format: html editor: visual ---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
